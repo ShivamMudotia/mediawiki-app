@@ -1,0 +1,19 @@
+--- 
+global: 
+  registry_url: mshivam21
+  WSGSITENAME: dev
+  WSGSERVER: dev.mediawiki.mydomain.com
+  WGDBSERVER: mediawiki-db
+  WGDBNAME: wikidatabase
+  WGDBUSER: wikiuser
+  WGDBPASSWORD: Changeme
+  RAM:
+    requests: 800Mi
+    limits: 2000Mi
+  CPU:
+    requests: 200m
+    limits: 500m
+  replicas: 1
+
+
+  

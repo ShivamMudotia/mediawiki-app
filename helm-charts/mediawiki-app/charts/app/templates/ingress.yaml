@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mediawiki-ingress
+  namespace: {{ .Release.Namespace }}
+spec:
+  tls:
+    - hosts:
+      - {{ .Values.global.WSGSERVER }}
+  rules:
+  - host: {{ .Values.global.WSGSERVER }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ .Chart.Name }}
+          servicePort: 80

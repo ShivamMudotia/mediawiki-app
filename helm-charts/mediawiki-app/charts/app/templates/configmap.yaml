@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+  namespace: {{ .Release.Namespace }}
+data:
+  WSGSITENAME: {{ .Values.global.WSGSITENAME | quote }} 
+  WSGSERVER: {{ .Values.global.WSGSERVER | quote }} 
+  WGDBSERVER: {{ .Values.global.WGDBSERVER | quote }} 
+  WGDBNAME: {{ .Values.global.WGDBNAME | quote }} 
+  WGDBUSER: {{ .Values.global.WGDBUSER | quote }} 
+  WGDBPASSWORD: {{ .Values.global.WGDBPASSWORD | quote }} 
+  
