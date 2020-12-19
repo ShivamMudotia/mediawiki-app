@@ -1,5 +1,8 @@
-FROM centos:8
+FROM centos:8 as mediawiki_base
+RUN dnf -y update
+RUN dnf -y install httpd httpd-tools php php-mysqlnd php-gd php-xml mariadb php-mbstring php-json wget
 
+FROM mediawiki_base
 #Default Variables # varibales from configmap will override these.
 ENV WSGSITENAME="dev"
 ENV WSGSERVER="dev.mediawiki.mydomain.com"
@@ -7,11 +10,10 @@ ENV WGDBSERVER="mediawiki-db"
 ENV WGDBNAME="wikidatabase"
 ENV WGDBUSER="wikiuser"
 ENV WGDBPASSWORD="Changeme"
-
-RUN dnf -y update
-RUN dnf -y install httpd httpd-tools php php-mysqlnd php-gd php-xml mariadb php-mbstring php-json wget
+# Copy required files
 COPY httpd.conf /etc/httpd/conf/httpd.conf
-COPY 00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
+COPY custom_00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
+COPY custom_php.ini /etc/php.ini
 WORKDIR /var/www
 COPY mediawiki-1.31.10.tar.gz .
 RUN tar -zxf mediawiki-1.31.10.tar.gz

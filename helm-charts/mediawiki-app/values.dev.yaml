@@ -7,6 +7,12 @@ global:
   WGDBNAME: wikidatabase
   WGDBUSER: wikiuser
   WGDBPASSWORD: Changeme
+  WSGSITENAME_BASE64: ZGV2Cg==
+  WSGSERVER_BASE64: ZGV2Lm1lZGlhd2lraS5teWRvbWFpbi5jb20K
+  WGDBSERVER_BASE64: bWVkaWF3aWtpLWRiCg==
+  WGDBNAME_BASE64: d2lraWRhdGFiYXNlCg==
+  WGDBUSER_BASE64: d2lraXVzZXIK
+  WGDBPASSWORD_BASE64: Q2hhbmdlbWUK
   RAM:
     requests: 800Mi
     limits: 2000Mi
