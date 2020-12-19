@@ -42,17 +42,6 @@ spec:
                 name: {{ .Chart.Name }}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 80
-            initialDelaySeconds: 10
-            periodSeconds: 20
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 80
-            timeoutSeconds: 2
           volumeMounts:
             - mountPath: /var/config
               name: mediawiki-storage
