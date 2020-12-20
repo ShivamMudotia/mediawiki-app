@@ -42,6 +42,17 @@ spec:
                 name: {{ .Chart.Name }}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          livenessProbe:
+            httpGet:
+              path: /mw-config
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /mw-config
+              port: 80
+            timeoutSeconds: 5
           volumeMounts:
             - mountPath: /var/config
               name: mediawiki-storage
@@ -55,3 +66,4 @@ spec:
             path: /mediawiki/{{ .Values.global.WSGSITENAME }} 
             type: ""
           name: mediawiki-storage
+

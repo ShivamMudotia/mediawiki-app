@@ -13,7 +13,7 @@ ENV WGDBPASSWORD="Changeme"
 # Copy required files
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 COPY custom_00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
-COPY custom_php.ini /etc/php.ini
+#COPY custom_php.ini /etc/php.ini
 WORKDIR /var/www
 COPY mediawiki-1.31.10.tar.gz .
 RUN tar -zxf mediawiki-1.31.10.tar.gz

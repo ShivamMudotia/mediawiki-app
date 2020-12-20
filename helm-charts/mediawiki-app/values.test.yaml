@@ -14,10 +14,10 @@ global:
   WGDBUSER_BASE64: d2lraXVzZXIK
   WGDBPASSWORD_BASE64: Q2hhbmdlbWUK
   RAM:
-    requests: 800Mi
-    limits: 2000Mi
+    requests: 80Mi
+    limits: 200Mi
   CPU:
-    requests: 200m
+    requests: 20m
     limits: 500m
   replicas: 1
 
